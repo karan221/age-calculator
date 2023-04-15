@@ -1,0 +1,93 @@
+@font-face {
+  font-family: "Poppins";
+  src: url(assets/fonts/Poppins-Bold.ttf), url(assets/fonts/Poppins-BoldItalic.ttf), url(assets/fonts/Poppins-ExtraBold.ttf), url(assets/fonts/Poppins-ExtraBoldItalic.ttf), url(assets/fonts/Poppins-Italic.ttf), url(assets/fonts/Poppins-Regular.ttf);
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: hsl(0, 0%, 94%);
+  height: 100svh;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  flex-direction: column;
+  border-radius: 1.5rem;
+  background-color: white;
+  padding: 1.5rem;
+  border-bottom-right-radius: 10rem;
+  width: 38rem;
+}
+main .separator {
+  display: flex;
+  align-items: center;
+}
+main .separator hr {
+  display: inline-block;
+  width: 100%;
+  border: none;
+  border-top: solid 1px hsl(0, 0%, 86%);
+}
+main .separator img {
+  padding: 0.8rem;
+  border-radius: 50px;
+  background-color: hsl(259, 100%, 65%);
+}
+main .separator img:hover {
+  background-color: hsl(0, 0%, 8%);
+}
+main form {
+  display: flex;
+}
+main form fieldset {
+  border: none;
+  margin: 0;
+}
+main form fieldset label {
+  display: block;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: hsl(0, 1%, 44%);
+}
+main form fieldset:invalid label {
+  color: red;
+}
+main form fieldset:invalid input {
+  border-color: red;
+}
+main form input[type=text] {
+  font-size: 32px;
+  font-weight: 700;
+  width: 7rem;
+  padding: 0.6rem;
+  border: none;
+  border: solid 1px #ccc;
+  border-radius: 6px;
+  caret-color: transparent;
+}
+main form input[type=text]:focus {
+  outline: none;
+  border-color: hsl(259, 100%, 65%);
+}
+main form span {
+  display: block;
+}
+main form input:invalid:required + span:after {
+  content: "This Field is Required";
+  color: red;
+  font-style: italic;
+  font-weight: normal;
+}
+main p {
+  display: block;
+  font-weight: 800;
+  font-size: 84px;
+  font-style: italic;
+  line-height: 1;
+  margin: 0;
+}
+main p span {
+  color: hsl(259, 100%, 65%);
+}/*# sourceMappingURL=style.css.map */
