@@ -57,7 +57,15 @@ main form fieldset:invalid label {
 main form fieldset:invalid input {
   border-color: red;
 }
-main form input[type=text] {
+main form input[type=number]::-webkit-outer-spin-button,
+main form input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+main form input[type=number] {
+  -moz-appearance: textfield;
+}
+main form input[type=number] {
   font-size: 32px;
   font-weight: 700;
   width: 7rem;
@@ -67,7 +75,7 @@ main form input[type=text] {
   border-radius: 6px;
   caret-color: transparent;
 }
-main form input[type=text]:focus {
+main form input[type=number]:focus {
   outline: none;
   border-color: hsl(259, 100%, 65%);
 }
