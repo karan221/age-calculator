@@ -1,7 +1,4 @@
-@font-face {
-  font-family: "Poppins";
-  src: url(assets/fonts/Poppins-Bold.ttf), url(assets/fonts/Poppins-BoldItalic.ttf), url(assets/fonts/Poppins-ExtraBold.ttf), url(assets/fonts/Poppins-ExtraBoldItalic.ttf), url(assets/fonts/Poppins-Italic.ttf), url(assets/fonts/Poppins-Regular.ttf);
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,800&display=swap");
 body {
   font-family: "Poppins", sans-serif;
   background-color: hsl(0, 0%, 94%);
@@ -23,12 +20,21 @@ main {
 main .separator {
   display: flex;
   align-items: center;
+  justify-content: right;
 }
-main .separator hr {
-  display: inline-block;
-  width: 100%;
-  border: none;
-  border-top: solid 1px hsl(0, 0%, 86%);
+main .separator::before {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid hsl(0, 0%, 86%);
+}
+main .separator:not(:empty)::before {
+  margin-right: 0.25em;
+}
+main .separator:not(:empty)::after {
+  margin-left: 0.25em;
+}
+main .separator a {
+  float: right;
 }
 main .separator img {
   padding: 0.8rem;
@@ -52,10 +58,10 @@ main form fieldset label {
   color: hsl(0, 1%, 44%);
 }
 main form fieldset:invalid label {
-  color: red;
+  color: hsl(0, 100%, 67%);
 }
 main form fieldset:invalid input {
-  border-color: red;
+  border-color: hsl(0, 100%, 67%);
 }
 main form input[type=number]::-webkit-outer-spin-button,
 main form input[type=number]::-webkit-inner-spin-button {
@@ -66,13 +72,13 @@ main form input[type=number] {
   -moz-appearance: textfield;
 }
 main form input[type=number] {
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: 700;
   width: 7rem;
   padding: 0.6rem;
   border: none;
   border: solid 1px #ccc;
-  border-radius: 6px;
+  border-radius: 0.5rem;
   caret-color: transparent;
 }
 main form input[type=number]:focus {
@@ -84,18 +90,33 @@ main form span {
 }
 main form input:invalid:required + span:after {
   content: "This Field is Required";
-  color: red;
+  color: hsl(0, 100%, 67%);
   font-style: italic;
-  font-weight: normal;
+  font-size: 0.7rem;
 }
 main p {
   display: block;
   font-weight: 800;
-  font-size: 84px;
+  font-size: 5rem;
   font-style: italic;
   line-height: 1;
   margin: 0;
 }
 main p span {
   color: hsl(259, 100%, 65%);
+}
+
+@media screen and (max-width: 375px) {
+  html {
+    font-size: 10px;
+  }
+  main {
+    width: 300px;
+    padding: 1rem;
+  }
+  main .separator::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid hsl(0, 0%, 86%);
+  }
 }/*# sourceMappingURL=style.css.map */

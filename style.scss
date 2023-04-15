@@ -1,14 +1,7 @@
-@font-face {
-  font-family: 'Poppins';
-  src:  url(assets/fonts/Poppins-Bold.ttf),
-        url(assets/fonts/Poppins-BoldItalic.ttf),
-        url(assets/fonts/Poppins-ExtraBold.ttf),
-        url(assets/fonts/Poppins-ExtraBoldItalic.ttf),
-        url(assets/fonts/Poppins-Italic.ttf),
-        url(assets/fonts/Poppins-Regular.ttf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,800&display=swap');
 
 $purple: hsl(259, 100%, 65%);
+$light-red: hsl(0, 100%, 67%);
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -31,14 +24,26 @@ main {
   .separator {
     display: flex;
     align-items: center;
+    justify-content: right;
 
-    hr {
-      display: inline-block;
-      width: 100%;
-      border: none;
-      border-top: solid 1px hsl(0, 0%, 86%);
+    &::before {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid hsl(0, 0%, 86%);
     }
-  
+      
+    &:not(:empty)::before {
+      margin-right: .25em;
+    }
+    
+    &:not(:empty)::after {
+      margin-left: .25em;
+    }
+
+    a {
+      float: right;
+    }
+
     img {
       padding: 0.8rem;
       border-radius: 50px;
@@ -66,10 +71,10 @@ main {
 
       &:invalid {
         label {
-          color: red;
+          color: $light-red;
         }
         input {
-          border-color: red;
+          border-color: $light-red;
         }
       }
     }
@@ -85,13 +90,13 @@ main {
     }
 
     input[type="number"] {
-      font-size: 32px;
+      font-size: 2rem;
       font-weight: 700;
       width: 7rem;
       padding: 0.6rem;
       border: none;
       border: solid 1px #ccc;
-      border-radius: 6px;
+      border-radius: 0.5rem;
       caret-color: transparent;
 
       &:focus {
@@ -106,9 +111,9 @@ main {
 
     input:invalid:required + span:after {
       content: "This Field is Required";
-      color: red;
+      color: $light-red;
       font-style: italic;
-      font-weight: normal;
+      font-size: 0.7rem;
     }
 
   }
@@ -121,9 +126,31 @@ main {
 
     display: block;
     font-weight: 800;
-    font-size: 84px;
+    font-size: 5rem;
     font-style: italic;
     line-height: 1;
     margin: 0
+  }
+}
+
+@media screen and (max-width: 375px) {
+  html {
+    font-size: 10px;
+  }
+  main {
+    width: 300px;
+    padding: 1rem;
+
+    .separator {
+      &::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid hsl(0, 0%, 86%);
+      }
+    }
+
+    // input[type="number"] {
+    //   margin: 1rem;
+    // }
   }
 }
